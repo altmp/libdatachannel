@@ -19,6 +19,7 @@ jobs:
       - name: Build
         shell: cmd
         run: |
+		  set OPENSSL_ROOT_DIR="C:\Program Files\OpenSSL"
           call build.bat
           mkdir dist
           copy build\Release\datachannel-static.lib dist
