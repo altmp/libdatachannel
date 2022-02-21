@@ -16,11 +16,15 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Build
+      - name: Set environment variables
         shell: cmd
         run: |
           setx OPENSSL_ROOT_DIR "C:\Program Files\OpenSSL" /M
           refreshenv
+    
+      - name: Build
+        shell: cmd
+        run: |
           call build.bat
           mkdir dist
           copy build\Release\datachannel-static.lib dist
